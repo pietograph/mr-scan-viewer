@@ -5,6 +5,14 @@
   "description": "Browse your LiDAR scans (3D Scanner App and others) as miniatures in Meta Quest 3 mixed reality \u2014 a WebXR / three.js viewer with a scan converter.",
   "license": "MIT",
   "author": "Piet Schmidt",
+  "homepage": "https://github.com/pietograph/mr-scan-viewer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pietograph/mr-scan-viewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pietograph/mr-scan-viewer/issues"
+  },
   "type": "module",
   "workspaces": [
     "server",
