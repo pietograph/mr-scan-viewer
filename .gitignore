@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Your scans and everything converted from them (can contain GPS coordinates)
+scans/
+*alias
+
+# Local configuration (paths to your scan folders)
+scans.config.json
+
+# TLS certificate and private key (generated per machine by `npm run cert`)
+server/certs/
+*.pem
+
+# OS / editor
+.DS_Store
+.claude/

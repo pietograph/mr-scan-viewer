@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MR Scan Viewer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; color: #fff; font-family: system-ui, sans-serif; overflow: hidden; height: 100dvh; }
+    #canvas-container { position: fixed; inset: 0; }
+    canvas { display: block; width: 100%; height: 100%; }
+
+    #overlay {
+      position: fixed; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1.5rem;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+      transition: opacity 0.4s;
+    }
+    #overlay.hidden { opacity: 0; pointer-events: none; }
+
+    h1 { font-size: 2rem; font-weight: 300; letter-spacing: 0.1em; }
+    .subtitle { color: #aaa; font-size: 0.9rem; }
+
+    #xr-button {
+      padding: 0.9rem 2.4rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      border-radius: 3rem;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: background 0.2s, color 0.2s;
+    }
+    #xr-button:hover { background: #fff; color: #111; }
+    #xr-button:disabled { opacity: 0.4; cursor: default; }
+
+    #status {
+      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      font-size: 0.8rem; color: #888; z-index: 20;
+      pointer-events: none;
+    }
+
+    #loading {
+      position: fixed; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.8); z-index: 30;
+      font-size: 0.9rem; color: #ccc;
+      transition: opacity 0.4s;
+    }
+    #loading.hidden { opacity: 0; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <div id="canvas-container"><canvas id="canvas"></canvas></div>
+
+  <div id="loading">Loading scans…</div>
+
+  <div id="overlay" class="hidden">
+    <h1>MR Scan Viewer</h1>
+    <p class="subtitle" id="scan-count">Loading…</p>
+    <button id="xr-button" disabled>Enter Mixed Reality</button>
+    <p class="subtitle">Meta Quest 3 · Mixed Reality</p>
+  </div>
+
+  <div id="status"></div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js",
+      "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/",
+      "three-mesh-bvh": "https://cdn.jsdelivr.net/npm/three-mesh-bvh@0.7.8/build/index.module.js"
+    }
+  }
+  </script>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

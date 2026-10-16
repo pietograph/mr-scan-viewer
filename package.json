@@ -1,0 +1,28 @@
+{
+  "name": "mr-scan-viewer",
+  "version": "0.1.0-alpha",
+  "private": true,
+  "description": "Browse your LiDAR scans (3D Scanner App and others) as miniatures in Meta Quest 3 mixed reality \u2014 a WebXR / three.js viewer with a scan converter.",
+  "license": "MIT",
+  "author": "Piet Schmidt",
+  "type": "module",
+  "workspaces": [
+    "server",
+    "tools"
+  ],
+  "scripts": {
+    "cert": "node server/make-cert.js",
+    "convert": "node tools/convert-scans.js",
+    "manifest": "node tools/gen-manifest.js",
+    "start": "node server/index.js",
+    "test": "node tests/scan-geometry.test.mjs && node tests/room-grid.test.mjs && node tests/interaction.test.mjs"
+  },
+  "devDependencies": {
+    "three": "0.168.0",
+    "three-mesh-bvh": "0.7.8"
+  },
+  "allowScripts": {
+    "sharp@0.35.5": true,
+    "sharp@0.33.5": true
+  }
+}

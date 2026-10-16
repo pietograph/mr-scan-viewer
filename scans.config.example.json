@@ -1,0 +1,7 @@
+{
+  "sourceRoot": "/absolute/path/to/your/3D scans",
+  "scannerAppFolder": "3D Scanner App",
+  "folderUp": {
+    "Some exported folder": "+Z"
+  }
+}
